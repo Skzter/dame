@@ -1,6 +1,6 @@
-# dame
-## markdown oso
-Abschlussprüfung
+# Abschlussprüfung Grundlagen der Programmierung 
+## HTWK Leipzig, Medieninformatik, 1. Semester
+**Aufgabenstellung**
 
 Ein Damebrettspiel für diese Aufgabe besteht aus einem Brett mit 10×10 Feldern. Die Felder sind
 in beide Richtungen abwechselnd schwarz und weiß markiert. Die Startposition ist, dass jeder
@@ -27,4 +27,4 @@ unterstützt;
 erneute Eingabe bittet;
 - das alle bisherigen Brettbelegungen sowie der aktuelle Spieler, der am Zug ist vollständig
 im Speicher (RAM) zwischenspeichert, sodass der Spielstand jederzeit durch Eingabe von
-’-’ auf den vorherigen Spielstand zurückgesetzt werden kann
+’-’ auf den vorherigen Spielstand zurückgesetzt werden kann!
