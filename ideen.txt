@@ -1,0 +1,9 @@
+10x10 Feld, schwarz-weiß
+2 spieler je 15 steine
+
+nur schwarze felder auf ersten drei reihen
+	4 reihen in mitte frei am anfang
+
+zug nur vorwärts diagonal nach rechts/links 
+	zugname bspw a1 b2
+

@@ -7,7 +7,7 @@ in beide Richtungen abwechselnd schwarz und weiß markiert. Die Startposition is
 Spieler auf sich gegenüberliegenden Brettseiten jeweils 15 Spielsteine auf den schwarzen Feldern der
 ersten 3 Reihen hat. Gespielt wird abwechselnd, jeder Spieler darf nur seine eigenen Steine bewegen.
 Ein normaler Zug ist das Bewegen eines Spielsteins ein Feld vorwärts in Diagonalrichtung auf ein
-benachbartes leeres Feld. Das Schlagen des gegnerischen Steines erfolgt durch das ¨Uberspringen
+benachbartes leeres Feld. Das Schlagen des gegnerischen Steines erfolgt durch das Überspringen
 in Diagonalrichtung. Der geschlagene Stein wird dann vom Brett genommen. Bei der Ausgabe
 des Spielfeldes auf dem Bildschirm sollen die Anzahl der geschlagenen Steine angezeigt werden.
 Alle weiteren üblichen Regeln finden für diese Aufgabe keine Anwendung.
