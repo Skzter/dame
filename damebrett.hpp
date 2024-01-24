@@ -3,6 +3,7 @@
 class Damebrett
 {
 private:
+	std::vector<std::vector<std::string>> brett;
 	... zug;
 	//
 	//

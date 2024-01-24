@@ -7,3 +7,12 @@ nur schwarze felder auf ersten drei reihen
 zug nur vorwärts diagonal nach rechts/links 
 	zugname bspw a1 b2
 
+startpositions mit liste in liste??
+zwei listen in einander damit erste liste spalte und zweite reihe ist
+--> kann position von startsteinen mit [][] bestimmt werden und auch verändert werden
+--> Multidimensional Array für positionen string brett[10][10] = {{..},{...},..,{..}}
+std::array<std::array<int, n>, m> Damebrett = {}
+
+zug a1 zu b2
+--> stein bei a1 finden und zu b2 packen
+--> koordinaten von b2 sind 22 > char zu int 
