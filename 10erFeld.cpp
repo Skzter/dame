@@ -10,8 +10,8 @@
 using ZUG = std::pair<char, int>;
 int main()
 {
-	std::vector<std::vector<std::string>> Damebrett =
-		{{"A10","B10","C10","D10","E10","F10","G10","H10","I10","J10"},
+	std::array<std::array<std::string, 10>, 10> Damebrett =
+		{std::array<std::string, 10>({"A10","B10","C10","D10","E10","F10","G10","H10","I10","J10"}),
 		{"A9","B9","C9","D9","E9","F9","G9","H9","I9","J9"},
 		{"A8","B8","C8","D8","E8","F8","G8","H8","I8","J8"},
 		{"A7","B7","C7","D7","E7","F7","G7","H7","I7","J7"},
