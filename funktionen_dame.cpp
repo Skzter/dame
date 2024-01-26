@@ -1,10 +1,6 @@
 //funktionen_dame.cpp
 #include"damebrett.hpp"
 
-#include<iostream>
-#include<string>
-#include<array>
-
 Damebrett::Damebrett(FELD f)
 {
 	setSpieler1();
@@ -81,14 +77,13 @@ void Damebrett::ausgabeSpielfeld()
 	{
 		for(int j = 0; j <= 9; j++)
 		{
-			
 			if(!((i+j)%2))
 			{
-				std::cout << "\33[47m \33[0m"; // 47 = Weiß
+				std::cout << "\33[47m  \33[0m"; // 47 = Weiß
 			}
 			else
 			{
-				std::cout << "\33[40m" << spielfeld.at(i).at(j) << "\33[0m"; //40 = Schwarz 
+				std::cout << "\33[40m" << /*spielfeld.at(i).at(j) << */"()" << "\33[0m"; //40 = Schwarz 
 			}
 		}
 	std::cout << "\n";
