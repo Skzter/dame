@@ -98,13 +98,11 @@ void Damebrett::ausgabeSpielfeld()
 void Damebrett::zug()
 {
 	size_t posSpace = 0;
-	std::string zug_nutzer;
-	while(posSpace != 2)
+	std::string zug_nutzer = "xxxxx";
+	while(!((zug_nutzer.at(0) >= 'A' && zug_nutzer.at(0) <= 'J') && (zug_nutzer.at(1) >= '0' && zug_nutzer.at(1) <= '9') && (zug_nutzer.at(2) == ' ') && (zug_nutzer.at(3) >= 'A' && zug_nutzer.at(3) <= 'J') && (zug_nutzer.at(4) >= '0' && zug_nutzer.at(4) <= '9'))) // 0: Buchstabe 'A' bis 'J', 1: Zahl 1 bis 10, 2: space, 3: Buchstabe 'A' bis 'J', 4: Zahl 1 - 10
 	{
 		std::cout << "Geben sie ihren Zug ein > ";
 		std::getline(std::cin, zug_nutzer);
-
-		posSpace = zug_nutzer.find_first_of(' ');
 	}
 	std::string alt;
 	std::string neu;
@@ -112,6 +110,6 @@ void Damebrett::zug()
 	alt = zug_nutzer.substr(0,2);
 	neu = zug_nutzer.substr(3,2);
 	
-	std::cout << alt << "*" << neu;
+	std::cout << alt << "*" << neu << std::endl;
 }
 
