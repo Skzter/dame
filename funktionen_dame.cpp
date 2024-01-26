@@ -1,6 +1,8 @@
 //funktionen_dame.cpp
 #include"damebrett.hpp"
 
+#include<sstream>
+
 Damebrett::Damebrett(FELD f)
 {
 	setSpieler1();
@@ -96,8 +98,16 @@ void Damebrett::zug()
 	std::string zug_nutzer = "xxxxx";
 	while(!((zug_nutzer.at(0) >= 'A' && zug_nutzer.at(0) <= 'J') && (zug_nutzer.at(1) >= '0' && zug_nutzer.at(1) <= '9') && (zug_nutzer.at(2) == ' ') && (zug_nutzer.at(3) >= 'A' && zug_nutzer.at(3) <= 'J') && (zug_nutzer.at(4) >= '0' && zug_nutzer.at(4) <= '9'))) // 0: Buchstabe 'A' bis 'J', 1: Zahl 1 bis 10, 2: space, 3: Buchstabe 'A' bis 'J', 4: Zahl 1 - 10
 	{
+		
 		std::cout << "Geben sie ihren Zug ein > ";
 		std::getline(std::cin, zug_nutzer);
+		std::stringstream test(zug_nutzer);
+		char a,b;
+		int c,d;
+		// a,b,c,d vor schleife, dann a,b,c,d in bediengung rein mit char bei a,c und int b,d
+		// variblen umbennen und cout löschen
+		test >> a >> c >> b >> d;
+		std::cout << a << c << b << d;
 	}
 	std::string alt;
 	std::string neu;
