@@ -15,19 +15,23 @@ private:
 	
 	FELD spielfeld;
 public:
-	Damebrett(FELD, std::string, std::string); //Konstruktor
+	Damebrett(FELD); //Konstruktor
 	
 	void initSpielfeld(); // Initialiesiert Spielfeld mit schwarzen und weißen Steinen
 
 
 	void ausgabeSpielfeld(); // gibt aktuelles Spielfeld aus
 	
-	void zug(std::string); // "A1 B2" z.B.
-	void zug_rück(char); // "-" Taste      
+	void zug(); // "A1 B2" z.B.
+	void zug_rück(); // "-" Taste      
 
 	void ausgabeFeld();
 
+	void setSpieler1();
+	void setSpieler2();
+	
 	std::string getSpieler1();
 	std::string getSpieler2();
+
 
 };

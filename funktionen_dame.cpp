@@ -5,12 +5,30 @@
 #include<string>
 #include<array>
 
-Damebrett::Damebrett(FELD f, std::string sp1, std::string sp2)
+Damebrett::Damebrett(FELD f)
 {
-	spieler1 = sp1;
-	spieler2 = sp2;
+	setSpieler1();
+	setSpieler2();
 	spielfeld = f;
 
+}
+
+void Damebrett::setSpieler1()
+{
+	std::cout << "Spieler 1 > ";
+	std::string sp1;
+	std::getline(std::cin, sp1);
+
+	spieler1 = sp1;
+}
+
+void Damebrett::setSpieler2()
+{
+	std::cout << "Spieler 2 > ";
+	std::string sp2;
+	std::getline(std::cin, sp2);
+
+	spieler2 = sp2;
 }
 
 std::string Damebrett::getSpieler1()
@@ -76,3 +94,24 @@ void Damebrett::ausgabeSpielfeld()
 	std::cout << "\n";
 	}
 }
+
+void Damebrett::zug()
+{
+	size_t posSpace = 0;
+	std::string zug_nutzer;
+	while(posSpace != 2)
+	{
+		std::cout << "Geben sie ihren Zug ein > ";
+		std::getline(std::cin, zug_nutzer);
+
+		posSpace = zug_nutzer.find_first_of(' ');
+	}
+	std::string alt;
+	std::string neu;
+	
+	alt = zug_nutzer.substr(0,2);
+	neu = zug_nutzer.substr(3,2);
+	
+	std::cout << alt << "*" << neu;
+}
+
