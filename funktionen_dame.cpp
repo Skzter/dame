@@ -1,6 +1,7 @@
 //funktionen_dame.cpp
 #include"damebrett.hpp"
 
+#include<iostream>
 #include<string>
 #include<array>
 
@@ -22,13 +23,56 @@ std::string Damebrett::getSpieler2()
 	return spieler2;
 }
 
-FELD Damebrett::initSpielfeld(FELD feld_neu)
+void Damebrett::initSpielfeld()
 {
 	/*
 	 * Feld mit weißen und schwarzen Steinen
 	 * vllt Vector
 	 */
-	return feld_neu;
+	for(int i = 0; i <= 9; i++)
+	{
+		for(int j = 0; j <= 9; j++)
+		{
+			if(i <= 2)
+			{
+				if((i+j)%2)
+				{
+					spielfeld.at(i).at(j) = "s";
+				}
+			}
+			
+			if(i >= 7)
+			{
+				if((i+j)%2)
+				{
+					spielfeld.at(i).at(j) = "w";
+				}
+			}
+
+			if(i > 2 && i < 7)
+			{
+				spielfeld.at(i).at(j) = " ";
+			}
+		}
+	}
 }
 
-	
+void Damebrett::ausgabeSpielfeld()
+{
+	for(int i = 0; i <= 9; i++)
+	{
+		for(int j = 0; j <= 9; j++)
+		{
+			
+			if(!((i+j)%2))
+			{
+				std::cout << "\33[47m \33[0m"; // 47 = Weiß
+			}
+			else
+			{
+				std::cout << "\33[40m" << spielfeld.at(i).at(j) << "\33[0m"; //40 = Schwarz 
+			}
+		}
+	std::cout << "\n";
+	}
+}

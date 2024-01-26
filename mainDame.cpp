@@ -23,5 +23,6 @@ int main()
 	std::cout << testobjekt.getSpieler1() << "\n";
 	std::cout << testobjekt.getSpieler2() << std::endl;
 
-
+	testobjekt.initSpielfeld();
+	testobjekt.ausgabeSpielfeld();
 }

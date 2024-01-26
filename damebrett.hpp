@@ -17,10 +17,10 @@ private:
 public:
 	Damebrett(FELD, std::string, std::string); //Konstruktor
 	
-	FELD initSpielfeld(FELD);
+	void initSpielfeld(); // Initialiesiert Spielfeld mit schwarzen und weißen Steinen
 
 
-	FELD aktuelleSpielfeld(FELD);
+	void ausgabeSpielfeld(); // gibt aktuelles Spielfeld aus
 	
 	void zug(std::string); // "A1 B2" z.B.
 	void zug_rück(char); // "-" Taste      
