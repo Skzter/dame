@@ -96,11 +96,12 @@ void Damebrett::zug()
 {
 	size_t posSpace = 0;
 	std::string zug_nutzer = "xxxxx";
-	while(!((zug_nutzer.at(0) >= 'A' && zug_nutzer.at(0) <= 'J') && (zug_nutzer.at(1) >= '0' && zug_nutzer.at(1) <= '9') && (zug_nutzer.at(2) == ' ') && (zug_nutzer.at(3) >= 'A' && zug_nutzer.at(3) <= 'J') && (zug_nutzer.at(4) >= '0' && zug_nutzer.at(4) <= '9'))) // 0: Buchstabe 'A' bis 'J', 1: Zahl 1 bis 10, 2: space, 3: Buchstabe 'A' bis 'J', 4: Zahl 1 - 10
+	while(!((zug_nutzer.at(0) >= 'A' && zug_nutzer.at(0) <= 'J') && (zug_nutzer.at(1) >= '0' && zug_nutzer.at(1) <= '10') && (zug_nutzer.at(2) == ' ') && (zug_nutzer.at(3) >= 'A' && zug_nutzer.at(3) <= 'J') && (zug_nutzer.at(4) >= '0' && zug_nutzer.at(4) <= '10'))) // 0: Buchstabe 'A' bis 'J', 1: Zahl 1 bis 10, 2: space, 3: Buchstabe 'A' bis 'J', 4: Zahl 1 - 10
 	{
 		
 		std::cout << "Geben sie ihren Zug ein > ";
 		std::getline(std::cin, zug_nutzer);
+		/*
 		std::stringstream test(zug_nutzer);
 		char a,b;
 		int c,d;
@@ -108,6 +109,10 @@ void Damebrett::zug()
 		// variblen umbennen und cout löschen
 		test >> a >> c >> b >> d;
 		std::cout << a << c << b << d;
+		*/
+
+		//bei index 2 space oder 0
+		//bei index 5 nichts oder 0
 	}
 	std::string alt;
 	std::string neu;
