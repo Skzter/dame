@@ -1,8 +1,6 @@
 //funktionen_dame.cpp
 #include"damebrett.hpp"
 
-#include<sstream>
-
 Damebrett::Damebrett(FELD f)
 {
 	setSpieler1();
@@ -85,7 +83,18 @@ void Damebrett::ausgabeSpielfeld()
 			}
 			else
 			{
-				std::cout << "\33[40m" << /*spielfeld.at(i).at(j) << */"()" << "\33[0m"; //40 = Schwarz 
+				if(spielfeld.at(i).at(j) == "w")
+				{
+					std::cout << "\33[96m\33[40m()\33[0m";
+				}
+				if(spielfeld.at(i).at(j) == "s")
+				{
+					std::cout << "\33[95m\33[40m()\33[0m";
+				}
+				if(spielfeld.at(i).at(j) == " ")
+				{
+					std::cout << "\33[40m  \33[0m";
+				}
 			}
 		}
 	std::cout << "\n";
@@ -94,32 +103,40 @@ void Damebrett::ausgabeSpielfeld()
 
 void Damebrett::zug()
 {
-	size_t posSpace = 0;
-	std::string zug_nutzer = "xxxxx";
-	while(!((zug_nutzer.at(0) >= 'A' && zug_nutzer.at(0) <= 'J') && (zug_nutzer.at(1) >= '0' && zug_nutzer.at(1) <= '10') && (zug_nutzer.at(2) == ' ') && (zug_nutzer.at(3) >= 'A' && zug_nutzer.at(3) <= 'J') && (zug_nutzer.at(4) >= '0' && zug_nutzer.at(4) <= '10'))) // 0: Buchstabe 'A' bis 'J', 1: Zahl 1 bis 10, 2: space, 3: Buchstabe 'A' bis 'J', 4: Zahl 1 - 10
-	{
-		
-		std::cout << "Geben sie ihren Zug ein > ";
-		std::getline(std::cin, zug_nutzer);
-		/*
-		std::stringstream test(zug_nutzer);
-		char a,b;
-		int c,d;
-		// a,b,c,d vor schleife, dann a,b,c,d in bediengung rein mit char bei a,c und int b,d
-		// variblen umbennen und cout löschen
-		test >> a >> c >> b >> d;
-		std::cout << a << c << b << d;
-		*/
+	std::string zug;
 
-		//bei index 2 space oder 0
-		//bei index 5 nichts oder 0
+	char B1, B2;
+	int Z1, Z2;
+
+
+	std::cout << "Jeden Zug im Format BuchstabeZahl BuchstabeZahl eingeben. Zum Beispiel A1 B2.\n";
+
+	do{	
+		std::cout << "Bitte geben sie ihren Zug ein > ";
+
+		std::getline(std::cin, zug);
+		std::stringstream test(zug);
+		
+		test >> B1 >> Z1 >> B2 >> Z2;
+
+		B1 -= 'A'; //Fa
+		B2 -= 'A'; //Fz
+		Z1--;      //Za
+		Z2--;	   //Zz
+		
+			
+
+	}while(!((B1 >= 0 && B1 <= 9) && (Z1 >= 0 && Z1 <= 9) && (B2 >= 0 && B2 <= 9) && (Z2 >= 0 && Z2 <= 9) && ist_legalZug(B1, B2, Z1, Z2)));
+		
+
+}
+
+bool Damebrett::ist_legalZug(char Fa, char Fz, int Za, int Zz)
+{
+	if(spielfeld.at(9-Zz).at(Fz) == " ")
+	{
+		return true;
 	}
-	std::string alt;
-	std::string neu;
-	
-	alt = zug_nutzer.substr(0,2);
-	neu = zug_nutzer.substr(3,2);
-	
-	std::cout << alt << "*" << neu << std::endl;
+	return false;
 }
 

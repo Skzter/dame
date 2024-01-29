@@ -5,6 +5,7 @@
 #include<iomanip>
 #include<array>
 #include<string>
+#include<sstream>
 
 using FELD = std::array<std::array<std::string, 10>, 10 >; 
 
@@ -31,7 +32,9 @@ public:
 
 	void setSpieler1();
 	void setSpieler2();
-	
+
+	bool ist_legalZug(char, char, int, int);
+
 	std::string getSpieler1();
 	std::string getSpieler2();
 
