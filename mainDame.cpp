@@ -4,9 +4,7 @@
 
 int main()
 {
-	FELD testfeld;
-
-	Damebrett testobjekt(testfeld);
+	Damebrett testobjekt;
 	
 	/*
 	std::cout << testobjekt.getSpieler1() << "\n";

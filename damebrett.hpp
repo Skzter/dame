@@ -18,7 +18,7 @@ private:
 
 	FELD spielfeld;
 public:
-	Damebrett(FELD); //Konstruktor
+	Damebrett(); //Konstruktor
 	
 	void initSpielfeld(); // Initialiesiert Spielfeld mit schwarzen und weißen Steinen
 
@@ -35,8 +35,7 @@ public:
 
 	bool ist_legalZug(int, char, char, int, int);
 
-	std::string getSpieler1();
-	std::string getSpieler2();
+	std::string getSpieler(int);
 
 	void Spieler1();
 	void Spieler2();

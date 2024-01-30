@@ -1,11 +1,11 @@
 //funktionen_dame.cpp
 #include"damebrett.hpp"
 
-Damebrett::Damebrett(FELD f)
+Damebrett::Damebrett()
 {
 	setSpieler1();
 	setSpieler2();
-	spielfeld = f;
+	spielfeld;
 
 }
 
@@ -27,14 +27,20 @@ void Damebrett::setSpieler2()
 	spieler2 = sp2;
 }
 
-std::string Damebrett::getSpieler1()
+std::string Damebrett::getSpieler(int Person)
 {
-	return spieler1;
-}
-
-std::string Damebrett::getSpieler2()
-{
-	return spieler2;
+	switch(Person)
+	{
+		case 1:
+			return spieler1;
+			break;
+		case 2:
+			return spieler2;
+			break;
+		default:
+			return "Kaputt";
+			break;
+	}
 }
 
 void Damebrett::initSpielfeld()
@@ -73,8 +79,10 @@ void Damebrett::initSpielfeld()
 
 void Damebrett::ausgabeSpielfeld()
 {
+	char buchstabe = 'J';
 	for(int i = 0; i <= 9; i++)
 	{
+		std::cout << buchstabe-- << " ";
 		for(int j = 0; j <= 9; j++)
 		{
 			if(!((i+j)%2))
@@ -101,6 +109,22 @@ void Damebrett::ausgabeSpielfeld()
 		}
 	std::cout << "\n";
 	}
+
+	for(size_t z = 0; z <= 10; z++)
+	{
+		if(z < 1)
+		{
+			std::cout << "  ";
+		}
+		else
+		{
+			std::cout << z << " ";
+		}
+
+	}
+
+	std::cout << "\n";
+
 }
 
 void Damebrett::zug(int spielerDran)
@@ -112,10 +136,10 @@ void Damebrett::zug(int spielerDran)
 	char B1, B2;
 	int Z1, Z2;
 
-	std::cout << "Jeden Zug im Format BuchstabeZahl BuchstabeZahl eingeben. Zum Beispiel A1 B2.\n";
+	//std::cout << "Jeden Zug im Format BuchstabeZahl BuchstabeZahl eingeben. Zum Beispiel A1 B2.\n";
 
 	do{	
-		std::cout << "Bitte geben sie ihren Zug ein > ";
+		std::cout << getSpieler(spieler_erkennung) << " gib deinen Zug ein > ";
 
 		std::getline(std::cin, zug);
 		std::stringstream test(zug);
