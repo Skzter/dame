@@ -15,7 +15,7 @@ class Damebrett
 private:
 	std::string spieler1;
 	std::string spieler2;
-	
+
 	FELD spielfeld;
 public:
 	Damebrett(FELD); //Konstruktor
@@ -25,7 +25,7 @@ public:
 
 	void ausgabeSpielfeld(); // gibt aktuelles Spielfeld aus
 	
-	void zug(); // "A1 B2" z.B.
+	void zug(int); // "A1 B2" z.B.
 	void zug_rück(); // "-" Taste      
 
 	void ausgabeFeld();
@@ -33,10 +33,12 @@ public:
 	void setSpieler1();
 	void setSpieler2();
 
-	bool ist_legalZug(char, char, int, int);
+	bool ist_legalZug(int, char, char, int, int);
 
 	std::string getSpieler1();
 	std::string getSpieler2();
 
-
+	void Spieler1();
+	void Spieler2();
+	void SpielTest();
 };
