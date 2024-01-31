@@ -6,7 +6,7 @@ Damebrett::Damebrett()
 	setSpieler1();
 	setSpieler2();
 	spielfeld;
-
+	SpielTest();
 }
 
 void Damebrett::setSpieler1()
@@ -45,10 +45,6 @@ std::string Damebrett::getSpieler(int Person)
 
 void Damebrett::initSpielfeld()
 {
-	/*
-	 * Feld mit weißen und schwarzen Steinen
-	 * vllt Vector
-	 */
 	for(int i = 0; i <= 9; i++)
 	{
 		for(int j = 0; j <= 9; j++)
@@ -79,33 +75,32 @@ void Damebrett::initSpielfeld()
 
 void Damebrett::ausgabeSpielfeld()
 {
-	char buchstabe = 'J';
+	char buchstabe = 'A';
 	for(int i = 0; i <= 9; i++)
 	{
-		std::cout << buchstabe-- << " ";
+		std::cout << std::setw(2) << 10-i << " ";
 		for(int j = 0; j <= 9; j++)
 		{
 			if(!((i+j)%2))
 			{
-				std::cout << "\33[47m  \33[0m"; // 47 = Weiß
+				std::cout << "\33[47m   \33[0m"; // 47 = Weiß
 			}
 			else
 			{
 				if(spielfeld.at(i).at(j) == "w")
 				{
-					std::cout << "\33[96m\33[40m()\33[0m";
+					std::cout << "\33[96m\33[40m( )\33[0m";
 				}
 				if(spielfeld.at(i).at(j) == "s")
 				{	
-					std::cout << "\33[95m\33[40m()\33[0m";
+					std::cout << "\33[95m\33[40m( )\33[0m";
 				}
 				if(spielfeld.at(i).at(j) == " ")
 				{
-					std::cout << "\33[40m  \33[0m";
+					std::cout << "\33[40m   \33[0m";
 			
 				}
 			}
-			
 		}
 	std::cout << "\n";
 	}
@@ -114,17 +109,15 @@ void Damebrett::ausgabeSpielfeld()
 	{
 		if(z < 1)
 		{
-			std::cout << "  ";
+			std::cout << "   ";
 		}
 		else
 		{
-			std::cout << z << " ";
+			std::cout << " " << buchstabe++ << " ";
 		}
 
 	}
-
 	std::cout << "\n";
-
 }
 
 void Damebrett::zug(int spielerDran)
@@ -137,6 +130,7 @@ void Damebrett::zug(int spielerDran)
 	int Z1, Z2;
 
 	//std::cout << "Jeden Zug im Format BuchstabeZahl BuchstabeZahl eingeben. Zum Beispiel A1 B2.\n";
+	//Erklärung der Züge in Startmenu
 
 	do{	
 		std::cout << getSpieler(spieler_erkennung) << " gib deinen Zug ein > ";
@@ -153,9 +147,16 @@ void Damebrett::zug(int spielerDran)
 
 	}while(!((B1 >= 0 && B1 <= 9) && (Z1 >= 0 && Z1 <= 9) && (B2 >= 0 && B2 <= 9) && (Z2 >= 0 && Z2 <= 9) && ist_legalZug(spieler_erkennung, B1, B2, Z1, Z2)));
 
-	spielfeld.at(9-Z1).at(B1) = " ";
-	spielfeld.at(9-Z2).at(B2) = "w";
-		
+	if(spieler_erkennung == 1)
+	{
+		spielfeld.at(9-Z1).at(B1) = " ";
+		spielfeld.at(9-Z2).at(B2) = "s";
+	}
+	if(spieler_erkennung == 2)
+	{
+		spielfeld.at(9-Z1).at(B1) = " ";
+		spielfeld.at(9-Z2).at(B2) = "w";
+	}
 }
 
 bool Damebrett::ist_legalZug(int von_spieler, char Fa, char Fz, int Za, int Zz)  // Switch Case mit Spieler1/2 als übergabe in dieser und Zugfunktion
