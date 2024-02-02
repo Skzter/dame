@@ -41,7 +41,7 @@ public:
 	std::string getSpieler(int);
 	
 	void setZugSpeicher();
-	FELD getZugSpeicher();
+	void ZugZurück();
 
 	void Spieler1();
 	void Spieler2();

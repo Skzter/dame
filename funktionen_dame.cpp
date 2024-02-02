@@ -157,8 +157,6 @@ void Damebrett::zug(int spielerDran)
 		spielfeld.at(9-Z1).at(B1) = " ";
 		spielfeld.at(9-Z2).at(B2) = "w";
 	}
-	
-
 }
 
 bool Damebrett::ist_legalZug(int von_spieler, char Fa, char Fz, int Za, int Zz)  // Switch Case mit Spieler1/2 als übergabe in dieser und Zugfunktion
@@ -202,16 +200,15 @@ void Damebrett::SpielTest()
 	size_t i = 0;
 	initSpielfeld();
 	ausgabeSpielfeld();
-	while(i < 1)
+	while(true)
 	{
 		Spieler1();
 		Spieler2();
-		i++;
 	}
 	
 	std::cout << "Letzter Zug zurück" << std::endl;
 
-	getZugSpeicher(); 
+	ZugZurück(); 
 
 	ausgabeSpielfeld();	
 }
@@ -219,16 +216,10 @@ void Damebrett::SpielTest()
 void Damebrett::setZugSpeicher()
 {
 	speicherSpielfeld.push_back(spielfeld);	
-	std::cout << "-----------" << speicherSpielfeld.size() << "-------------\n";
 }
 
-FELD Damebrett::getZugSpeicher()
+void Damebrett::ZugZurück()
 {
-	std::cout << "--------" << speicherSpielfeld.size() << "--------\n";
 	speicherSpielfeld.pop_back();
 	spielfeld = speicherSpielfeld.at(speicherSpielfeld.size()-1);
-	std::cout << "--------" << speicherSpielfeld.size() << "--------\n";
-	
-	return spielfeld;
 }
-
