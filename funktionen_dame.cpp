@@ -208,7 +208,7 @@ void Damebrett::SpielTest()
 	
 	std::cout << "Letzter Zug zurück" << std::endl;
 
-	ZugZurück(); 
+	ZugZurueck(); 
 
 	ausgabeSpielfeld();	
 }
@@ -218,7 +218,7 @@ void Damebrett::setZugSpeicher()
 	speicherSpielfeld.push_back(spielfeld);	
 }
 
-void Damebrett::ZugZurück()
+void Damebrett::ZugZurueck()
 {
 	speicherSpielfeld.pop_back();
 	spielfeld = speicherSpielfeld.at(speicherSpielfeld.size()-1);
