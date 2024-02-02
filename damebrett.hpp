@@ -4,6 +4,7 @@
 #include<iostream>
 #include<iomanip>
 #include<array>
+#include<vector>
 #include<string>
 #include<sstream>
 
@@ -15,6 +16,8 @@ class Damebrett
 private:
 	std::string spieler1;
 	std::string spieler2;
+	
+	std::vector <FELD> speicherSpielfeld;
 
 	FELD spielfeld;
 public:
@@ -36,6 +39,9 @@ public:
 	bool ist_legalZug(int, char, char, int, int);
 
 	std::string getSpieler(int);
+	
+	void setZugSpeicher();
+	FELD getZugSpeicher();
 
 	void Spieler1();
 	void Spieler2();
