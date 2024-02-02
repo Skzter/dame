@@ -29,7 +29,7 @@ public:
 	void ausgabeSpielfeld(); // gibt aktuelles Spielfeld aus
 	
 	void zug(int); // "A1 B2" z.B.
-	void zug_rück(); // "-" Taste      
+	//void zug_rück(); // "-" Taste      
 
 	void ausgabeFeld();
 
@@ -41,9 +41,10 @@ public:
 	std::string getSpieler(int);
 	
 	void setZugSpeicher();
-	void ZugZurück();
+	void ZugZurueck();
 
 	void Spieler1();
 	void Spieler2();
+	
 	void SpielTest();
 };
