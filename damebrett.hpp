@@ -24,27 +24,21 @@ public:
 	Damebrett(); //Konstruktor
 	
 	void initSpielfeld(); // Initialiesiert Spielfeld mit schwarzen und weißen Steinen
-
-
 	void ausgabeSpielfeld(); // gibt aktuelles Spielfeld aus
-	
-	void zug(int); // "A1 B2" z.B.
-	//void zug_rück(); // "-" Taste      
-
-	void ausgabeFeld();
 
 	void setSpieler1();
 	void setSpieler2();
-
-	bool ist_legalZug(int, char, char, int, int);
-
 	std::string getSpieler(int);
-	
-	void setZugSpeicher();
-	void ZugZurueck();
 
+	void zug(int); // "A1 B2" z.B.
+	bool ist_legalZug(int, char, char, int, int);
+	void ZugAusführen(int, char, int, char, int);
+
+	void ZugZurueck();
+	void setZugSpeicher();
+
+	//testmethoden damit game läuft, alles gebündelt
 	void Spieler1();
 	void Spieler2();
-	
 	void SpielTest();
 };

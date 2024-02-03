@@ -149,14 +149,17 @@ void Damebrett::zug(int spielerDran)
 
 	if(spieler_erkennung == 1)
 	{
-		spielfeld.at(9-Z1).at(B1) = " ";
-		spielfeld.at(9-Z2).at(B2) = "s";
+			spielfeld.at(9-Z1).at(B1) = " ";
+			spielfeld.at(9-Z2).at(B2) = "s";
 	}
 	if(spieler_erkennung == 2)
 	{
-		spielfeld.at(9-Z1).at(B1) = " ";
-		spielfeld.at(9-Z2).at(B2) = "w";
+			spielfeld.at(9-Z1).at(B1) = " ";
+			spielfeld.at(9-Z2).at(B2) = "w";
 	}
+
+//	ZugAusführen(spieler_erkennung, B1, Z1, B2, Z2);
+
 }
 
 bool Damebrett::ist_legalZug(int von_spieler, char Fa, char Fz, int Za, int Zz)  // Switch Case mit Spieler1/2 als übergabe in dieser und Zugfunktion
@@ -179,6 +182,22 @@ bool Damebrett::ist_legalZug(int von_spieler, char Fa, char Fz, int Za, int Zz) 
 			}
 	}
 	return false;
+}
+void Damebrett::ZugAusführen(int welcher_spieler, char ReiheJetzt, int SpalteJetzt, char ReiheDanach, int SpalteDanach )
+{
+	spielfeld.at(9-SpalteJetzt).at(ReiheJetzt) = " ";
+	
+	switch(welcher_spieler)
+	{
+		case 1:
+		{
+			spielfeld.at(9-SpalteDanach).at(ReiheDanach) = "w";
+		}
+		case 2:
+		{
+			spielfeld.at(9-SpalteDanach).at(ReiheDanach) = "s";
+		}
+	}
 }
 
 void Damebrett::Spieler1()
