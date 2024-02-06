@@ -2,18 +2,32 @@
 -> at(..) drehen 
 
 - zug_legal funktion einrichten
-Spieler 1 (unten)
-	-> BS+1 und Zahl+-1
+Spieler 1 (unten) -- weiß
+	-> buchstabe+1 und Zahl+-1
 		-> ist Zielfeld frei?
-	-> BS+2 und Zahl+-2
+	-> buchstabe+2 und Zahl+-2 
 		-> ist Zielfeld frei
 		-> steht bei BS+1 Zahl+-1 Gegner?
 	
-Spieler 2 (oben)
-	-> BS-1 und Zahl+-1
+Spieler 2 (oben) -- schwarz
+	-> buchstabe-1 und Zahl+-1
 		-> ist Zielfeld frei?
-	-> BS-2 und Zahl+-2
+	-> buchstabe-2 und Zahl+-2
 		-> ist Zielfeld frei
 		-> steht bei BS-1 Zahl+-1 Gegner?
 
-- start menu schreiben
+- name neben spielfeld schreiben (in Farbe der Steine färben)
+- start menu mit erklärung der Eingabe schreibeb schreiben
+
+
+------------
+ Buchstabe -- Zahl
+    i         j 
+	Za        Fa
+    Zz 		  Fz
+
+	-- ZugAusfuehren s und w tauschen
+
+	A1 C3
+
+	(Zz == Za+2 UND Fz == Fa+2 UND Zz/Fa frei) UND (bei Za++/Zz+1 steht gegner) ODER (Zz == Za+2 UND Fz == Fa-2 UND Zz/Fa frei) UND (bei Za++/Zz-- steht gegner)

@@ -5,7 +5,7 @@ Damebrett::Damebrett()
 {
 	setSpieler1();
 	setSpieler2();
-	spielfeld;
+	FELD spielfeld;
 	SpielTest();
 }
 
@@ -83,17 +83,17 @@ void Damebrett::ausgabeSpielfeld()
 		{
 			if(!((i+j)%2))
 			{
-				std::cout << "\33[47m   \33[0m"; // 47 = Weiß
+				std::cout << "\33[47m   \33[0m"; // 47 = Weiß (bg)
 			}
 			else
 			{
 				if(spielfeld.at(i).at(j) == "w")
 				{
-					std::cout << "\33[96m\33[40m( )\33[0m";
+					std::cout << "\33[96m\33[40m( )\33[0m"; // 96 = Cyabn (fg); 40 = Schwarz (bg)
 				}
 				if(spielfeld.at(i).at(j) == "s")
 				{	
-					std::cout << "\33[95m\33[40m( )\33[0m";
+					std::cout << "\33[95m\33[40m( )\33[0m"; // 95 = Magenta (fg); 40 = Schwarz (bg)
 				}
 				if(spielfeld.at(i).at(j) == " ")
 				{
@@ -129,73 +129,100 @@ void Damebrett::zug(int spielerDran)
 	char B1, B2;
 	int Z1, Z2;
 
-	//std::cout << "Jeden Zug im Format BuchstabeZahl BuchstabeZahl eingeben. Zum Beispiel A1 B2.\n";
-	//Erklärung der Züge in Startmenu
-
 	do{	
-		std::cout << getSpieler(spieler_erkennung) << ", gib deinen Zug ein > ";
+		std::cout << getSpieler(spieler_erkennung) << " " << spieler_erkennung << " (1 = unten, 2 = oben), gib deinen Zug ein > ";
 
 		std::getline(std::cin, zug);
 		std::stringstream test(zug);
 		
 		test >> B1 >> Z1 >> B2 >> Z2;
 
+		//std::cout << B1 << Z1 << " " << B2 << Z2 << "\n";
+
 		B1 -= 'A'; //Fa
 		B2 -= 'A'; //Fz
 		Z1--;      //Za
 		Z2--;	   //Zz
 
+		//std::cout << B1 << Z1 << " " << B2 << Z2 << "\n";
+
 	}while(!((B1 >= 0 && B1 <= 9) && (Z1 >= 0 && Z1 <= 9) && (B2 >= 0 && B2 <= 9) && (Z2 >= 0 && Z2 <= 9) && ist_legalZug(spieler_erkennung, B1, B2, Z1, Z2)));
 
-	if(spieler_erkennung == 1)
-	{
-			spielfeld.at(9-Z1).at(B1) = " ";
-			spielfeld.at(9-Z2).at(B2) = "s";
-	}
-	if(spieler_erkennung == 2)
-	{
-			spielfeld.at(9-Z1).at(B1) = " ";
-			spielfeld.at(9-Z2).at(B2) = "w";
-	}
-
-//	ZugAusführen(spieler_erkennung, B1, Z1, B2, Z2);
+	ZugAusfuehren(spieler_erkennung, B1, Z1, B2, Z2);
 
 }
 
-bool Damebrett::ist_legalZug(int von_spieler, char Fa, char Fz, int Za, int Zz)  // Switch Case mit Spieler1/2 als übergabe in dieser und Zugfunktion
+bool Damebrett::ist_legalZug(int von_spieler, char& Fa, char& Fz, int& Za, int& Zz)  // Switch Case mit Spieler1/2 als übergabe in dieser und Zugfunktion
 {
-	switch(von_spieler)
+	//if(von_spieler == 1)
+	//{
+	//	return true;
+	std::cout << Fa << Za << " " << Fz << Zz << "\n";
+	std::cout << Za+1 << " Fa++ " << Fa+1 << " Fa-- " << Fa-1 << "\n";
+	std::cout << "Fa: " << " " << Fa << "\n";
+	std::cout << "Fz: " << " " << Fz << "\n";
+	if(Fz == Fa++)
 	{
-		case 1: //Fz > Fa und Zz muss Za-- || Za++ sein -- Schlagen
-			return true; //nur für test
-			if(spielfeld.at(9-Zz).at(Fz) == " ")
-			{
-				std::cout << "Spieler 1 \n";
-				return true;
-			}
-		case 2: //Fz < Fa und Zz muss Za-- || Za++ sein -- Schlagen
-			return true;
-			if(spielfeld.at(9-Zz).at(Fz) == " ")
-			{
-				std::cout << "Spieler 2 \n";
-				return true;
-			}
+		std::cout << "jo \n";
 	}
+	else
+	{
+		std::cout << "ne \n";
+	}
+
+	if(((Zz == Za++) && (Fz == (Fa++ || Fa--)) && (spielfeld.at(9-Zz).at(Fz) == " ")) && (von_spieler == 1)) // Zug eine Zeile nach unten und eine Spalte nach links/recht und Zielfeld frei
+	{																 				 // normaler Zug, fehlt noch, dass feld grade aber theoretisch keine falschen Züge mgl
+		return true;
+	}
+		/*
+		else if(((Zz == Za+2) && (Fz == Fa+2) && (spielfeld.at(9-Zz).at(Fz) == " ")) && (spielfeld.at(9-Zz+1).at(Fz+1) == "s")) // Schlag für diagonal rechts oben, zwischen "s" und ziel frei
+		{
+			return true;
+		} 
+	
+		else if(((Zz == Za+2) && (Fz == Fa-2) && (spielfeld.at(9-Zz).at(Fz) == " ")) && (spielfeld.at(9-Zz+1).at(Fz-1) == "s")) // Schlag für diagobal links oben, zwischen "s" und ziel frei
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		*/
+	//}
+	else if(von_spieler == 2)
+	{
+		if((Zz == Za--) && (Fz == (Fa++ || Fa--)) && spielfeld.at(9-Zz).at(Fz) == " ")
+		{
+			return true;
+		}
+		if(((Zz == Za-2) && (Fz == Fa-2) && (spielfeld.at(9-Zz).at(Fz) == " ")) && (spielfeld.at(9-Zz-1).at(Fz+1) == "s")) // Schlag für diagonal links unten, zwischen "s" und ziel frei
+		{
+			return true;
+		} 
+		if(((Zz == Za-2) && (Fz == Fa+2) && (spielfeld.at(9-Zz).at(Fz) == " ")) && (spielfeld.at(9-Zz-1).at(Fz+1) == "s")) // Schlag für diagonal links unten, zwischen "s" und ziel frei
+		{
+			return true;
+		} 
+	}
+	
 	return false;
 }
-void Damebrett::ZugAusführen(int welcher_spieler, char ReiheJetzt, int SpalteJetzt, char ReiheDanach, int SpalteDanach )
+void Damebrett::ZugAusfuehren(int welcher_spieler, char ReiheJetzt, int SpalteJetzt, char ReiheDanach, int SpalteDanach )
 {
 	spielfeld.at(9-SpalteJetzt).at(ReiheJetzt) = " ";
-	
+
 	switch(welcher_spieler)
 	{
 		case 1:
 		{
 			spielfeld.at(9-SpalteDanach).at(ReiheDanach) = "w";
+			break;
 		}
 		case 2:
 		{
 			spielfeld.at(9-SpalteDanach).at(ReiheDanach) = "s";
+			break;
 		}
 	}
 }
@@ -216,7 +243,6 @@ void Damebrett::Spieler2()
 
 void Damebrett::SpielTest()
 {
-	size_t i = 0;
 	initSpielfeld();
 	ausgabeSpielfeld();
 	while(true)

@@ -31,8 +31,8 @@ public:
 	std::string getSpieler(int);
 
 	void zug(int); // "A1 B2" z.B.
-	bool ist_legalZug(int, char, char, int, int);
-	void ZugAusführen(int, char, int, char, int);
+	bool ist_legalZug(int, char&, char&, int&, int&);
+	void ZugAusfuehren(int, char, int, char, int);
 
 	void ZugZurueck();
 	void setZugSpeicher();
