@@ -2,22 +2,18 @@
 
 int main()
 {
-		char a = 2;
-		char b = 3;
-		std::cout << "Ausgang: " << a << "\n";
-		std::cout << "Ziel: " << b << "\n";
+	signed char A = '-';
+	signed char B = 'A';
+	signed char erg = A - B;
 
-		std::cout << "a + 1: " << a+1 << "\n";
-		std::cout << "a++: " << a++ << "\n";
+	if(erg == -20)
+	{
+		std::cout << "ahjsdha \n";
+	}
 
-		std::cout << "Ist a++ gleich b? \n"; 
-		if(b == a++)
-		{
-			std::cout << "Ja \n";
-		}
-		else
-		{
-			std::cout << "ne \n";
-		}
+	std::cout << erg << std::endl;
 
+	signed char ahsd = -20;
+
+	std::cout << ahsd;
 }

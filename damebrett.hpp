@@ -24,14 +24,14 @@ public:
 	Damebrett(); //Konstruktor
 	
 	void initSpielfeld(); // Initialiesiert Spielfeld mit schwarzen und weißen Steinen
-	void ausgabeSpielfeld(); // gibt aktuelles Spielfeld aus
+	void ausgabeSpielfeld() const; // gibt aktuelles Spielfeld aus
 
 	void setSpieler1();
 	void setSpieler2();
-	std::string getSpieler(int);
+	std::string getSpieler(int) const;
 
 	void zug(int); // "A1 B2" z.B.
-	bool ist_legalZug(int, char&, char&, int&, int&);
+	bool ist_legalZug(int, const char&, const char&, const int&, const int&);
 	void ZugAusfuehren(int, char, int, char, int);
 
 	void ZugZurueck();
