@@ -1,20 +1,7 @@
 - zugausführen funktion korigieren 
--> at(..) drehen 
+-> bei schlag feld zwischen löschen
 
-- zug_legal funktion einrichten
-Spieler 1 (unten) -- weiß
-	-> buchstabe+1 und Zahl+-1
-		-> ist Zielfeld frei?
-	-> buchstabe+2 und Zahl+-2 
-		-> ist Zielfeld frei
-		-> steht bei BS+1 Zahl+-1 Gegner?
-	
-Spieler 2 (oben) -- schwarz
-	-> buchstabe-1 und Zahl+-1
-		-> ist Zielfeld frei?
-	-> buchstabe-2 und Zahl+-2
-		-> ist Zielfeld frei
-		-> steht bei BS-1 Zahl+-1 Gegner?
+-reverse funktion implementieren
 
 - name neben spielfeld schreiben (in Farbe der Steine färben)
 - start menu mit erklärung der Eingabe schreibeb schreiben
