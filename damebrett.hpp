@@ -7,6 +7,7 @@
 #include<vector>
 #include<string>
 #include<sstream>
+#include<fstream>
 
 using FELD = std::array<std::array<std::string, 10>, 10 >; 
 
@@ -16,7 +17,10 @@ class Damebrett
 private:
 	std::string spieler1;
 	std::string spieler2;
-	
+
+	unsigned int punkte_spieler1;
+	unsigned int punkte_spieler2;
+
 	std::vector <FELD> speicherSpielfeld;
 
 	FELD spielfeld;
@@ -36,7 +40,11 @@ public:
 
 	void ZugZurueck();
 	void setZugSpeicher();
+	void PunkteZaehlen();
 
+	void Pixelart_einlesen_ausgeben(std::string);
+	void StartMenu();
+	void SiegerMenu();
 	//testmethoden damit game läuft, alles gebündelt
 	void Spieler1();
 	void Spieler2();

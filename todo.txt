@@ -1,20 +1,12 @@
-- zugausführen funktion korigieren 
--> bei schlag feld zwischen löschen
+- zug gültig/ungültig anzeigen	
+	     -> warnung anzeigen
 
--reverse funktion implementieren
-
-- name neben spielfeld schreiben (in Farbe der Steine färben)
 - start menu mit erklärung der Eingabe schreibeb schreiben
-
+- sieger funktion schreiben
+- DOKUMENTIEREN!!!!
 
 ------------
  Buchstabe -- Zahl
     i         j 
 	Za        Fa
     Zz 		  Fz
-
-	-- ZugAusfuehren s und w tauschen
-
-	A1 C3
-
-	(Zz == Za+2 UND Fz == Fa+2 UND Zz/Fa frei) UND (bei Za++/Zz+1 steht gegner) ODER (Zz == Za+2 UND Fz == Fa-2 UND Zz/Fa frei) UND (bei Za++/Zz-- steht gegner)
