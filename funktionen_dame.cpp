@@ -329,7 +329,9 @@ void Damebrett::StartMenu()
 	}
 	else
 	{
-		std::system("reboot");
+		std::system("firefox dependencies/video.mp4");
+		//std::system("firefox https://www.youtube.com/watch?v=xvFZjo5PgG0");
+		exit(0);
 	}
 }
 
