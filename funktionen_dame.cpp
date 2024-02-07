@@ -78,6 +78,7 @@ void Damebrett::initSpielfeld()
 void Damebrett::ausgabeSpielfeld() const
 {
 	std::system("clear");
+	std::cout << std::endl;
 	char buchstabe = 'A';
 	for(int i = 0; i <= 9; i++)
 	{
@@ -324,6 +325,7 @@ void Damebrett::StartMenu()
 
 	if(eingabe_benutzer == 1)
 	{
+		Erklaerung();
 		setSpieler1();
 		setSpieler2();
 	}
@@ -332,6 +334,35 @@ void Damebrett::StartMenu()
 		std::system("firefox dependencies/video.mp4");
 		//std::system("firefox https://www.youtube.com/watch?v=xvFZjo5PgG0");
 		exit(0);
+	}
+}
+
+void Damebrett::Erklaerung()
+{
+	std::system("clear");
+	std::cout << "Tutorial für das Spiel Dame \n \n";
+	
+	std::cout << "Es gibt zwei Spieler mit je 15 Steinen. Spieler 1 besitzt die weißen(hier Cyan) Steine und Spieler 2 die schwarzen(hier Magenta) Steine. Jeder Spieler startet mit 0 Punkten. Man bekommt einen Punkt, wenn man einengegnerischen Stein schlägt. Der erste Spieler, der 15 Punkte errreicht gewinnt das Spiel. Wenn das Spiel vorzeitig endet, da keine Züge mehr ausgeführt werden könnnen, gewinnt der Spieler mit den meisten Punkten.\nEingabe der Züge:\nDie Züge werden wie im Schach angegeben. Ein Beispielzug wäre C3 D4. Das bewegt den Stein von Feld C3 zu Feld D4. Möchte man einen Spieler schlagen, gibt man wie gewohnt das Start- und Zielfeld an. Ein Beispielzug wäre D4 B6. Dieser wird nur ausgeführt, wenn auch ein Gegner auf dem übersprungenen Feld steht. Man kann Z\374ge r\374ckgaengig machen, indem man '-' eingibt.\nGibt man einen falschen Zug ein fragt das Programm erneut nach einer Eingabe. Dies geschieht solange bis ein korrekter Zug eingegeben wurde.\n";
+	
+	std::string eingabe;
+	
+	do
+	{
+		std::cout << "Regeln verstanden? (j/n): ";
+		std::getline(std::cin, eingabe);
+	}
+	while(!((eingabe == "j") || (eingabe == "n")));
+
+	std::system("clear");
+	
+	if(eingabe == "n")
+	{
+		std::system("firefox dependencies/video.mp4");
+		exit(0);
+	}
+	else if(eingabe == "j")
+	{
+		std::cout << "Viel Spaß beim Spielen!\n" << std::endl;
 	}
 }
 

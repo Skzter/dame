@@ -44,6 +44,7 @@ public:
 
 	void Pixelart_einlesen_ausgeben(std::string);
 	void StartMenu();
+	void Erklaerung();
 	void SiegerMenu();
 	//testmethoden damit game läuft, alles gebündelt
 	void Spieler1();
