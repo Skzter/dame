@@ -58,7 +58,6 @@ void Damebrett::initSpielfeld()
 					spielfeld.at(i).at(j) = "s";
 				}
 			}
-			
 			if(i >= 7)
 			{
 				if((i+j)%2)
@@ -66,7 +65,6 @@ void Damebrett::initSpielfeld()
 					spielfeld.at(i).at(j) = "w";
 				}
 			}
-
 			if(i > 2 && i < 7)
 			{
 				spielfeld.at(i).at(j) = " ";
@@ -212,6 +210,7 @@ bool Damebrett::ist_legalZug(int von_spieler, const char& FeldAnfang, const char
 	std::cout << "Falscher Zug! Bitte gib deinen Zug erneut ein. \n";
 	return false;
 }
+
 void Damebrett::ZugAusfuehren(int welcher_spieler, char ReiheJetzt, int SpalteJetzt, char ReiheDanach, int SpalteDanach )
 {
 	spielfeld.at(9-SpalteJetzt).at(ReiheJetzt) = " ";
