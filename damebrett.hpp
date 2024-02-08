@@ -15,6 +15,8 @@ const unsigned char oe = static_cast<unsigned char>(148);
 const unsigned char ue = static_cast<unsigned char>(129);
 const unsigned char ss = static_cast<unsigned char>(225);
 
+/**
+ * @brief Für das Damespiel verantwortlich. 
 class Damebrett
 {
 private:
