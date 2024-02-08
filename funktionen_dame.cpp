@@ -145,10 +145,10 @@ void Damebrett::zug(int spielerDran)
 		
 		eingabe >> Buchstabe1 >> Zahl1 >> Buchstabe2 >> Zahl2;
 
-		Buchstabe1 -= 'A';	//FeldAnfang
-		Buchstabe2 -= 'A'; 	//FeldZiel
-		Zahl1--;      		//ZahlAnfang
-		Zahl2--;	   		//ZahlZiel
+		Buchstabe1 -= 'A';	
+		Buchstabe2 -= 'A'; 	
+		Zahl1--;      		
+		Zahl2--;	   		
 
 	}while(!(((Buchstabe1 >= 0 && Buchstabe1 <= 9) && (Zahl1 >= 0 && Zahl1 <= 9) && (Buchstabe2 >= 0 && Buchstabe2 <= 9) && (Zahl2 >= 0 && Zahl2 <= 9) && ist_legalZug(spieler_erkennung, Buchstabe1, Buchstabe2, Zahl1, Zahl2)) || (Buchstabe1 == -20)));
 
@@ -164,7 +164,7 @@ void Damebrett::zug(int spielerDran)
 	}
 }
 
-bool Damebrett::ist_legalZug(int von_spieler, const char& FeldAnfang, const char& FeldZiel, const int& ZahlAnfang, const int& ZahlZiel)  // Switch Case mit Spieler1/2 als übergabe in dieser und Zugfunktion
+bool Damebrett::ist_legalZug(int von_spieler, const char& FeldAnfang, const char& FeldZiel, const int& ZahlAnfang, const int& ZahlZiel)
 {
 	if(von_spieler == 1 && spielfeld.at(9-ZahlAnfang).at(FeldAnfang) == "w")
 	{

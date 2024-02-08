@@ -10,13 +10,6 @@
 
 using FELD = std::array<std::array<std::string, 10>, 10 >;
 
-/*
-const unsigned char ae = static_cast<unsigned char>(132);
-const unsigned char oe = static_cast<unsigned char>(148);
-const unsigned char ue = static_cast<unsigned char>(129);
-const unsigned char ss = static_cast<unsigned char>(225);
-*/
-
 /**
  * @brief Die Klasse Damebrett initialiesiert das Spielfeld mit den Spielsteinen beider Spieler. Es erstellt ein Spiel für zwei Spieler und führt die eingegebenen Züge aus.
  * 
