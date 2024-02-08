@@ -22,9 +22,3 @@ Spieler gibt Zug ein der:
 
 - erreicht ein Spieler 15 Punkte --> Spielende und Siegerbildschirm wird gezeigt mit Beenden Programm
 - keine möglichen Züge mehr (muss von spielern selber erkannt werden) --> Spieler mit meisten Punkten gewinnt
-
------------------
-Video mit allen abgedeckten Testcases sowie Beispielgameplay
-
-
-
