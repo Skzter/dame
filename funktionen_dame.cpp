@@ -105,18 +105,17 @@ void Damebrett::ausgabeSpielfeld() const
 			
 				}
 			}
-
-
 		}
-	if(i == 1)
-	{
-		std::cout << "\t\33[95m" << getSpieler(2) << "\33[m: " << punkte_spieler2;
-	}
-	else if(i == 8)
-	{
-		std::cout << "\t\33[96m" << getSpieler(1) << "\33[m: " << punkte_spieler1;
-	}
-	std::cout << "\n";
+
+		if(i == 1)
+		{
+			std::cout << "\t\33[95m" << getSpieler(2) << "\33[m: " << punkte_spieler2;
+		}
+		else if(i == 8)
+		{
+			std::cout << "\t\33[96m" << getSpieler(1) << "\33[m: " << punkte_spieler1;
+		}
+		std::cout << "\n";
 	}
 
 	for(size_t z = 0; z <= 10; z++)
@@ -129,7 +128,6 @@ void Damebrett::ausgabeSpielfeld() const
 		{
 			std::cout << " " << buchstabe++ << " ";
 		}
-
 	}
 	std::cout << "\n";
 }
@@ -138,8 +136,8 @@ void Damebrett::zug(int spielerDran)
 {
 	int spieler_erkennung = spielerDran;
 	std::string eingabeSpieler;	
-	char B1, B2;
-	int Z1, Z2;
+	char Buchstabe1, Buchstabe2;
+	int Zahl1, Zahl2;
 
 	do{	
 		std::cout << getSpieler(spieler_erkennung) << ", gib deinen Zug ein > ";
@@ -147,42 +145,40 @@ void Damebrett::zug(int spielerDran)
 		std::getline(std::cin, eingabeSpieler);
 		std::stringstream eingabe(eingabeSpieler);
 		
-		eingabe >> B1 >> Z1 >> B2 >> Z2;
+		eingabe >> Buchstabe1 >> Zahl1 >> Buchstabe2 >> Zahl2;
 
-		B1 -= 'A'; //Fa
-		B2 -= 'A'; //Fz
-		Z1--;      //Za
-		Z2--;	   //Zz
+		Buchstabe1 -= 'A';	//FeldAnfang
+		Buchstabe2 -= 'A'; 	//FeldZiel
+		Zahl1--;      		//ZahlAnfang
+		Zahl2--;	   		//ZahlZiel
 
-	}while(!(((B1 >= 0 && B1 <= 9) && (Z1 >= 0 && Z1 <= 9) && (B2 >= 0 && B2 <= 9) && (Z2 >= 0 && Z2 <= 9) && ist_legalZug(spieler_erkennung, B1, B2, Z1, Z2)) || (B1 == -20)));
+	}while(!(((Buchstabe1 >= 0 && Buchstabe1 <= 9) && (Zahl1 >= 0 && Zahl1 <= 9) && (Buchstabe2 >= 0 && Buchstabe2 <= 9) && (Zahl2 >= 0 && Zahl2 <= 9) && ist_legalZug(spieler_erkennung, Buchstabe1, Buchstabe2, Zahl1, Zahl2)) || (Buchstabe1 == -20)));
 
-	if(B1 == -20)
+	if(Buchstabe1 == -20)
 	{
 		ZugZurueck();
 		PunkteZaehlen();
 	}
 	else
 	{
-		ZugAusfuehren(spieler_erkennung, B1, Z1, B2, Z2);
+		ZugAusfuehren(spieler_erkennung, Buchstabe1, Zahl1, Buchstabe2, Zahl2);
 		setZugSpeicher();
 	}
 }
 
-bool Damebrett::ist_legalZug(int von_spieler, const char& Fa, const char& Fz, const int& Za, const int& Zz)  // Switch Case mit Spieler1/2 als übergabe in dieser und Zugfunktion
+bool Damebrett::ist_legalZug(int von_spieler, const char& FeldAnfang, const char& FeldZiel, const int& ZahlAnfang, const int& ZahlZiel)  // Switch Case mit Spieler1/2 als übergabe in dieser und Zugfunktion
 {
 	if(von_spieler == 1)
 	{
-		if(((Zz == Za+1) && ((Fz == Fa+1) || (Fz == Fa-1))) && (spielfeld.at(9-Zz).at(Fz) == " ")) // Zug eine Zeile nach unten und eine Spalte nach links/recht und Zielfeld frei
-		{																 				 // normaler Zug, fehlt noch, dass feld grade aber theoretisch keine falschen Züge mgl
+		if(((ZahlZiel == ZahlAnfang+1) && ((FeldZiel == FeldAnfang+1) || (FeldZiel == FeldAnfang-1))) && (spielfeld.at(9-ZahlZiel).at(FeldZiel) == " "))
+		{																 				 
 			return true;
 		}
-		
-		else if(((Zz == Za+2) && (Fz == Fa+2) && (spielfeld.at(9-Zz).at(Fz) == " ")) && (spielfeld.at(9-Zz+1).at(Fz-1) == "s")) // Schlag für diagonal rechts oben, zwischen "s" und ziel frei
+		else if(((ZahlZiel == ZahlAnfang+2) && (FeldZiel == FeldAnfang+2) && (spielfeld.at(9-ZahlZiel).at(FeldZiel) == " ")) && (spielfeld.at(9-ZahlZiel+1).at(FeldZiel-1) == "s"))
 		{
 			return true;
 		} 
-	
-		else if(((Zz == Za+2) && (Fz == Fa-2) && (spielfeld.at(9-Zz).at(Fz) == " ")) && (spielfeld.at(9-Zz+1).at(Fz+1) == "s")) // Schlag für diagobal links oben, zwischen "s" und ziel frei
+		else if(((ZahlZiel == ZahlAnfang+2) && (FeldZiel == FeldAnfang-2) && (spielfeld.at(9-ZahlZiel).at(FeldZiel) == " ")) && (spielfeld.at(9-ZahlZiel+1).at(FeldZiel+1) == "s"))
 		{
 			return true;
 		}
@@ -194,15 +190,15 @@ bool Damebrett::ist_legalZug(int von_spieler, const char& Fa, const char& Fz, co
 	}
 	else if(von_spieler == 2)
 	{
-		if((Zz == Za-1) && ((Fz == Fa+1) || (Fz == Fa-1))&& spielfeld.at(9-Zz).at(Fz) == " ")
+		if((ZahlZiel == ZahlAnfang-1) && ((FeldZiel == FeldAnfang+1) || (FeldZiel == FeldAnfang-1))&& spielfeld.at(9-ZahlZiel).at(FeldZiel) == " ")
 		{
 			return true;
 		}
-		if(((Zz == Za-2) && (Fz == Fa-2) && (spielfeld.at(9-Zz).at(Fz) == " ")) && (spielfeld.at(9-Zz-1).at(Fz+1) == "w")) // Schlag für diagonal links unten, zwischen "s" und ziel frei
+		if(((ZahlZiel == ZahlAnfang-2) && (FeldZiel == FeldAnfang-2) && (spielfeld.at(9-ZahlZiel).at(FeldZiel) == " ")) && (spielfeld.at(9-ZahlZiel-1).at(FeldZiel+1) == "w"))
 		{
 			return true;
 		} 
-		if(((Zz == Za-2) && (Fz == Fa+2) && (spielfeld.at(9-Zz).at(Fz) == " ")) && (spielfeld.at(9-Zz-1).at(Fz-1) == "w")) // Schlag für diagonal links unten, zwischen "s" und ziel frei
+		if(((ZahlZiel == ZahlAnfang-2) && (FeldZiel == FeldAnfang+2) && (spielfeld.at(9-ZahlZiel).at(FeldZiel) == " ")) && (spielfeld.at(9-ZahlZiel-1).at(FeldZiel-1) == "w"))
 		{
 			return true;
 		}
@@ -278,6 +274,7 @@ void Damebrett::PunkteZaehlen()
 {
 	punkte_spieler1 = 15;
 	punkte_spieler2 = 15;
+	
 	for(size_t i = 0; i <= 9; i++)
 	{
 		for(size_t j = 0; j <= 9; j++)
@@ -300,7 +297,8 @@ void Damebrett::Pixelart_einlesen_ausgeben(std::string datei_name)
 	datei.open(datei_name, std::ios::in);
 
 	std::string line;
-	while(datei){
+	while(datei)
+	{
 		getline(datei, line);
 		std::cout<<line<<std::endl;
 	}
@@ -311,9 +309,9 @@ void Damebrett::StartMenu()
 	std::system("clear");
 	Pixelart_einlesen_ausgeben("pixelart.txt");
 	std::cout << "W" << ae << "hle 'Start', um zu spielen oder 'Beenden', um das Programm zu beenden.\n";
-	std::cout << "1. Start \n"
-		     "2. Beenden \n";
+	std::cout << "1. Start \n2. Beenden \n";
 	int eingabe_benutzer;
+	
 	do
 	{
 		std::cout << "> ";
@@ -331,8 +329,7 @@ void Damebrett::StartMenu()
 	}
 	else
 	{
-		std::system("firefox dependencies/video.mp4");
-		//std::system("firefox https://www.youtube.com/watch?v=xvFZjo5PgG0");
+		std::system("firefox video.mp4");
 		exit(0);
 	}
 }
@@ -341,7 +338,6 @@ void Damebrett::Erklaerung()
 {
 	std::system("clear");
 	std::cout << "Tutorial f" << ue << "r das Spiel Dame \n \n";
-	
 	std::cout << "Es gibt zwei Spieler mit je 15 Steinen. \33[96mSpieler 1\33[0m besitzt die wei" << ss << "en (\33[96mhier Cyan\33[0m) Steine und \33[95mSpieler 2\33[0m die schwarzen (\33[95mhier Magenta\33[0m) Steine. Jeder Spieler startet mit 0 Punkten. Man bekommt einen Punkt, wenn man einengegnerischen Stein schl" << ae << "gt. Der erste Spieler, der 15 Punkte errreicht gewinnt das Spiel. Wenn das Spiel vorzeitig endet, da keine Z" << ue << "ge mehr ausgef" << ue << "hrt werden k" << oe << "nnnen, gewinnt der Spieler mit den meisten Punkten.\nEingabe der Z" << ue << "ge:\nDie Z" << ue << "ge werden wie im Schach angegeben. Ein Beispielzug w" << ae << "re C3 D4. Das bewegt den Stein von Feld C3 zu Feld D4. M" << oe <<"chte man einen Spieler schlagen, gibt man wie gewohnt das Start- und Zielfeld an. Ein Beispielzug w" << ae << "re D4 B6. Dieser wird nur ausgef" << ue << "hrt, wenn auch ein Gegner auf dem " << ue << "bersprungenen Feld steht. Man kann Z" << ue << "ge r" << ue << "ckg" << ae << "ngig machen, indem man '-' eingibt.\nGibt man einen falschen Zug ein, fragt das Programm erneut nach einer Eingabe. Dies geschieht solange bis ein korrekter Zug eingegeben wurde.\n";
 	
 	std::string eingabe;
