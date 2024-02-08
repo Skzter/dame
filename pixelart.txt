@@ -5,5 +5,4 @@
 #   #   #######	  #    	  #   #	
 #  #	#     #	  #	  #   #
 ###	#     #	  #	  #   #####
-	©Vincent Götze
-
+	@Vincent Goetze

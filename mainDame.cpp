@@ -1,5 +1,4 @@
 //mainDame.cpp
-
 #include"damebrett.hpp"
 
 int main()

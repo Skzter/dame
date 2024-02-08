@@ -1,0 +1,1 @@
+g++ funktionen_dame.cpp mainDame.cpp  -Wall -std=c++17

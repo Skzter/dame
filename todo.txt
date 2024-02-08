@@ -1,7 +1,3 @@
-- zug gültig/ungültig anzeigen	
-	     -> warnung anzeigen
-
-- start menu mit erklärung der Eingabe schreibeb schreiben
 - sieger funktion schreiben
 - DOKUMENTIEREN!!!!
 

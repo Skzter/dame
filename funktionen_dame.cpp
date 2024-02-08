@@ -8,7 +8,7 @@ Damebrett::Damebrett()
 	
 	FELD spielfeld;
 	
-	SpielTest();
+	Spiel();
 }
 
 void Damebrett::setSpieler1()
@@ -310,13 +310,13 @@ void Damebrett::StartMenu()
 {
 	std::system("clear");
 	Pixelart_einlesen_ausgeben("pixelart.txt");
-	std::cout << "Das ist das Startmenu \n";
-	std::cout << "Wähle 'Start', um zu spielen oder 'Beenden', um das Programm zu beenden.\n";
+	std::cout << "W" << ae << "hle 'Start', um zu spielen oder 'Beenden', um das Programm zu beenden.\n";
 	std::cout << "1. Start \n"
 		     "2. Beenden \n";
 	int eingabe_benutzer;
 	do
 	{
+		std::cout << "> ";
 		std::cin >> eingabe_benutzer;
 		std::cin.ignore(100,'\n');
 
@@ -340,9 +340,9 @@ void Damebrett::StartMenu()
 void Damebrett::Erklaerung()
 {
 	std::system("clear");
-	std::cout << "Tutorial für das Spiel Dame \n \n";
+	std::cout << "Tutorial f" << ue << "r das Spiel Dame \n \n";
 	
-	std::cout << "Es gibt zwei Spieler mit je 15 Steinen. \33[96mSpieler 1\33[0m besitzt die weißen(\33[96mhier Cyan\33[0m) Steine und \33[95mSpieler 2\33[0m die schwarzen(\33[95mhier Magenta\33[0m) Steine. Jeder Spieler startet mit 0 Punkten. Man bekommt einen Punkt, wenn man einengegnerischen Stein schlägt. Der erste Spieler, der 15 Punkte errreicht gewinnt das Spiel. Wenn das Spiel vorzeitig endet, da keine Züge mehr ausgeführt werden könnnen, gewinnt der Spieler mit den meisten Punkten.\nEingabe der Züge:\nDie Züge werden wie im Schach angegeben. Ein Beispielzug wäre C3 D4. Das bewegt den Stein von Feld C3 zu Feld D4. Möchte man einen Spieler schlagen, gibt man wie gewohnt das Start- und Zielfeld an. Ein Beispielzug wäre D4 B6. Dieser wird nur ausgeführt, wenn auch ein Gegner auf dem übersprungenen Feld steht. Man kann Z\374ge r\374ckgaengig machen, indem man '-' eingibt.\nGibt man einen falschen Zug ein fragt das Programm erneut nach einer Eingabe. Dies geschieht solange bis ein korrekter Zug eingegeben wurde.\n";
+	std::cout << "Es gibt zwei Spieler mit je 15 Steinen. \33[96mSpieler 1\33[0m besitzt die wei" << ss << "en (\33[96mhier Cyan\33[0m) Steine und \33[95mSpieler 2\33[0m die schwarzen (\33[95mhier Magenta\33[0m) Steine. Jeder Spieler startet mit 0 Punkten. Man bekommt einen Punkt, wenn man einengegnerischen Stein schl" << ae << "gt. Der erste Spieler, der 15 Punkte errreicht gewinnt das Spiel. Wenn das Spiel vorzeitig endet, da keine Z" << ue << "ge mehr ausgef" << ue << "hrt werden k" << oe << "nnnen, gewinnt der Spieler mit den meisten Punkten.\nEingabe der Z" << ue << "ge:\nDie Z" << ue << "ge werden wie im Schach angegeben. Ein Beispielzug w" << ae << "re C3 D4. Das bewegt den Stein von Feld C3 zu Feld D4. M" << oe <<"chte man einen Spieler schlagen, gibt man wie gewohnt das Start- und Zielfeld an. Ein Beispielzug w" << ae << "re D4 B6. Dieser wird nur ausgef" << ue << "hrt, wenn auch ein Gegner auf dem " << ue << "bersprungenen Feld steht. Man kann Z" << ue << "ge r" << ue << "ckg" << ae << "ngig machen, indem man '-' eingibt.\nGibt man einen falschen Zug ein, fragt das Programm erneut nach einer Eingabe. Dies geschieht solange bis ein korrekter Zug eingegeben wurde.\n";
 	
 	std::string eingabe;
 	
@@ -362,18 +362,18 @@ void Damebrett::Erklaerung()
 	}
 	else if(eingabe == "j")
 	{
-		std::cout << "Viel Spaß beim Spielen!\n" << std::endl;
+		std::cout << "Viel Spa" << ss << " beim Spielen!\n" << std::endl;
 	}
 }
 
 
-void Damebrett::SiegerMenu()
+void Damebrett::SiegerMenu(int sieger)
 {
+	std::system("clear");
+	std::cout << "Gl" << ue << "ckwunsch zum Sieg " << getSpieler(sieger) << ". \n";
+	std::cout << "Du hast erfolgreich deinen Gegner besiegt. M" << oe << "gen Ruhm und Reichtum die Folge sein!\n";
+	std::cout << "\nDanke f" << ue << "r das nutzen meines Programms" << std::endl;
 }
-
-
-/*----------------------------*/
-
 
 void Damebrett::Spieler1()
 {
@@ -387,7 +387,7 @@ void Damebrett::Spieler2()
 	zug(2);
 }
 
-void Damebrett::SpielTest()
+void Damebrett::Spiel()
 {	
 	StartMenu();
 	initSpielfeld();
@@ -399,5 +399,12 @@ void Damebrett::SpielTest()
 	}
 	while((punkte_spieler1 != 15) || (punkte_spieler2 != 15));
 
-	//Sieger()
+	if(punkte_spieler1 == 15)
+	{
+		SiegerMenu(1);
+	}
+	else if(punkte_spieler2 == 15)
+	{
+		SiegerMenu(2);
+	}
 }
