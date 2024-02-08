@@ -17,6 +17,7 @@ Spieler gibt Zug ein der:
                     gerade aus geht --> Warnung, erneute Eingabe
                     über zwei felder diagonal geht, ohne gegner --> Warnung, erneute Eingabe
                     Stein vom Gegner bewegt --> Warnung, erneute Eingabe
+                    Eingabe, wenn auf Startfeld kein eigener Stein steht bzw leer ist --> Warnung, erneute Eingabe
                     '-' --> feld davor wird anzeigt und spieler wechselt
 
 - erreicht ein Spieler 15 Punkte --> Spielende und Siegerbildschirm wird gezeigt mit Beenden Programm
