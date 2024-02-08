@@ -307,7 +307,7 @@ void Damebrett::StartMenu()
 {
 	std::system("clear -x");
 	Pixelart_einlesen_ausgeben("pixelart.txt");
-	std::cout << "W" << ae << "hle 'Start', um zu spielen oder 'Beenden', um das Programm zu beenden.\n";
+	std::cout << "Wä" << ae << "hle 'Start', um zu spielen oder 'Beenden', um das Programm zu beenden.\n";
 	std::cout << "1. Start \n2. Beenden" << std::endl;
 	std::string eingabe_benutzer;
 	
