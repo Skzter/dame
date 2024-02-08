@@ -299,7 +299,7 @@ void Damebrett::Pixelart_einlesen_ausgeben(std::string datei_name)
 	std::string line;
 	while(datei)
 	{
-		getline(datei, line);
+		std::getline(datei, line);
 		std::cout<<line<<std::endl;
 	}
 }
@@ -309,19 +309,19 @@ void Damebrett::StartMenu()
 	std::system("clear");
 	Pixelart_einlesen_ausgeben("pixelart.txt");
 	std::cout << "W" << ae << "hle 'Start', um zu spielen oder 'Beenden', um das Programm zu beenden.\n";
-	std::cout << "1. Start \n2. Beenden \n";
-	int eingabe_benutzer;
+	std::cout << "1. Start \n2. Beenden" << std::endl;
+	std::string eingabe_benutzer;
 	
 	do
 	{
 		std::cout << "> ";
-		std::cin >> eingabe_benutzer;
-		std::cin.ignore(100,'\n');
+		//std::cin >> eingabe_benutzer;
+		std::getline(std::cin, eingabe_benutzer);
 
 	}
-	while(!((eingabe_benutzer == 1) || (eingabe_benutzer == 2)));
+	while(!((eingabe_benutzer == "1") || (eingabe_benutzer == "2")));
 
-	if(eingabe_benutzer == 1)
+	if(eingabe_benutzer == "1")
 	{
 		Erklaerung();
 		setSpieler1();
@@ -359,6 +359,7 @@ void Damebrett::Erklaerung()
 	else if(eingabe == "j")
 	{
 		std::cout << "Viel Spa" << ss << " beim Spielen!\n" << std::endl;
+		std::cout << "Bitte gebt eure Namen ein damit ihr mit dem Spielen beginnen k" << oe << "nnt!" << std::endl;
 	}
 }
 
