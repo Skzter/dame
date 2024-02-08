@@ -166,7 +166,7 @@ void Damebrett::zug(int spielerDran)
 
 bool Damebrett::ist_legalZug(int von_spieler, const char& FeldAnfang, const char& FeldZiel, const int& ZahlAnfang, const int& ZahlZiel)  // Switch Case mit Spieler1/2 als übergabe in dieser und Zugfunktion
 {
-	if(von_spieler == 1)
+	if(von_spieler == 1 && spielfeld.at(9-ZahlAnfang).at(FeldAnfang) == "w")
 	{
 		if(((ZahlZiel == ZahlAnfang+1) && ((FeldZiel == FeldAnfang+1) || (FeldZiel == FeldAnfang-1))) && (spielfeld.at(9-ZahlZiel).at(FeldZiel) == " "))
 		{																 				 
@@ -186,9 +186,9 @@ bool Damebrett::ist_legalZug(int von_spieler, const char& FeldAnfang, const char
 			return false;
 		}
 	}
-	else if(von_spieler == 2)
+	else if(von_spieler == 2 && spielfeld.at(9-ZahlAnfang).at(FeldAnfang) == "s")
 	{
-		if((ZahlZiel == ZahlAnfang-1) && ((FeldZiel == FeldAnfang+1) || (FeldZiel == FeldAnfang-1))&& spielfeld.at(9-ZahlZiel).at(FeldZiel) == " ")
+		if((ZahlZiel == ZahlAnfang-1) && ((FeldZiel == FeldAnfang+1) || (FeldZiel == FeldAnfang-1)) && spielfeld.at(9-ZahlZiel).at(FeldZiel) == " ")
 		{
 			return true;
 		}
@@ -387,7 +387,7 @@ void Damebrett::Spiel()
 	StartMenu();
 	initSpielfeld();
 	setZugSpeicher();
-	
+
 	while(!((punkte_spieler1 == 15) || (punkte_spieler2 == 15)))
 	{
 		Spieler1();
