@@ -314,7 +314,6 @@ void Damebrett::StartMenu()
 	do
 	{
 		std::cout << "> ";
-		//std::cin >> eingabe_benutzer;
 		std::getline(std::cin, eingabe_benutzer);
 
 	}
@@ -352,7 +351,7 @@ void Damebrett::Erklaerung()
 	
 	if(eingabe == "n")
 	{
-		std::system("firefox dependencies/video.mp4");
+		std::system("firefox video.mp4");
 		exit(0);
 	}
 	else if(eingabe == "j")
