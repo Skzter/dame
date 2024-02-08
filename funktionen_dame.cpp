@@ -75,7 +75,7 @@ void Damebrett::initSpielfeld()
 
 void Damebrett::ausgabeSpielfeld() const
 {
-	std::system("clear");
+	std::system("clear -x");
 	std::cout << std::endl;
 	char buchstabe = 'A';
 	for(int i = 0; i <= 9; i++)
@@ -305,7 +305,7 @@ void Damebrett::Pixelart_einlesen_ausgeben(std::string datei_name)
 
 void Damebrett::StartMenu()
 {
-	std::system("clear");
+	std::system("clear -x");
 	Pixelart_einlesen_ausgeben("pixelart.txt");
 	std::cout << "W" << ae << "hle 'Start', um zu spielen oder 'Beenden', um das Programm zu beenden.\n";
 	std::cout << "1. Start \n2. Beenden" << std::endl;
@@ -335,7 +335,7 @@ void Damebrett::StartMenu()
 
 void Damebrett::Erklaerung()
 {
-	std::system("clear");
+	std::system("clear -x");
 	std::cout << "Tutorial f" << ue << "r das Spiel Dame \n \n";
 	std::cout << "Es gibt zwei Spieler mit je 15 Steinen. \33[96mSpieler 1\33[0m besitzt die wei" << ss << "en (\33[96mhier Cyan\33[0m) Steine und \33[95mSpieler 2\33[0m die schwarzen (\33[95mhier Magenta\33[0m) Steine. Jeder Spieler startet mit 0 Punkten. Man bekommt einen Punkt, wenn man einengegnerischen Stein schl" << ae << "gt. Der erste Spieler, der 15 Punkte errreicht gewinnt das Spiel. Wenn das Spiel vorzeitig endet, da keine Z" << ue << "ge mehr ausgef" << ue << "hrt werden k" << oe << "nnnen, gewinnt der Spieler mit den meisten Punkten.\nEingabe der Z" << ue << "ge:\nDie Z" << ue << "ge werden wie im Schach angegeben. Ein Beispielzug w" << ae << "re C3 D4. Das bewegt den Stein von Feld C3 zu Feld D4. M" << oe <<"chte man einen Spieler schlagen, gibt man wie gewohnt das Start- und Zielfeld an. Ein Beispielzug w" << ae << "re D4 B6. Dieser wird nur ausgef" << ue << "hrt, wenn auch ein Gegner auf dem " << ue << "bersprungenen Feld steht. Man kann Z" << ue << "ge r" << ue << "ckg" << ae << "ngig machen, indem man '-' eingibt.\nGibt man einen falschen Zug ein, fragt das Programm erneut nach einer Eingabe. Dies geschieht solange bis ein korrekter Zug eingegeben wurde.\n";
 	
@@ -348,7 +348,7 @@ void Damebrett::Erklaerung()
 	}
 	while(!((eingabe == "j") || (eingabe == "n")));
 
-	std::system("clear");
+	std::system("clear -x");
 	
 	if(eingabe == "n")
 	{
@@ -365,7 +365,7 @@ void Damebrett::Erklaerung()
 
 void Damebrett::SiegerMenu(int sieger)
 {
-	std::system("clear");
+	std::system("clear -x");
 	std::cout << "Gl" << ue << "ckwunsch zum Sieg " << getSpieler(sieger) << ". \n";
 	std::cout << "Du hast erfolgreich deinen Gegner besiegt. M" << oe << "gen Ruhm und Reichtum die Folge sein!\n";
 	std::cout << "\nDanke f" << ue << "r das nutzen meines Programms" << std::endl;
