@@ -1,7 +1,0 @@
-- DOKUMENTIEREN!!!!
-
-------------
- Buchstabe -- Zahl
-    i         j 
-	Za        Fa
-    Zz 		  Fz

@@ -327,7 +327,6 @@ void Damebrett::StartMenu()
 	}
 	else
 	{
-		std::system("firefox video.mp4");
 		exit(0);
 	}
 }
@@ -351,7 +350,6 @@ void Damebrett::Erklaerung()
 	
 	if(eingabe == "n")
 	{
-		std::system("firefox video.mp4");
 		exit(0);
 	}
 	else if(eingabe == "j")
@@ -386,7 +384,8 @@ void Damebrett::Spiel()
 	StartMenu();
 	initSpielfeld();
 	setZugSpeicher();
-
+	punkte_spieler1 = 14;
+	punkte_spieler2 = 14;
 	while(!((punkte_spieler1 == 15) || (punkte_spieler2 == 15)))
 	{
 		Spieler1();
