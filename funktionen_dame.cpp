@@ -8,7 +8,7 @@ Damebrett::Damebrett()
 	
 	FELD spielfeld;
 	
-	Spiel();
+    //Spiel();
 }
 
 void Damebrett::setSpieler1()
