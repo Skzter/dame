@@ -7,8 +7,8 @@ Damebrett::Damebrett()
 	punkte_spieler2 = 0;
 	
 	FELD spielfeld;
-	
-    //Spiel();
+
+    Spiel();
 }
 
 void Damebrett::setSpieler1()
