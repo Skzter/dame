@@ -384,8 +384,6 @@ void Damebrett::Spiel()
 	StartMenu();
 	initSpielfeld();
 	setZugSpeicher();
-	punkte_spieler1 = 14;
-	punkte_spieler2 = 14;
 	while(!((punkte_spieler1 == 15) || (punkte_spieler2 == 15)))
 	{
 		Spieler1();
